@@ -1,0 +1,176 @@
+{
+	"id": "b8129222-6957-c487-67f7-1fa608ac09d8",
+	"name": "Seoul IoT",
+	"description": "",
+	"order": [
+		"73b5299b-25fb-9951-32fa-1be0250392b3",
+		"d50b0578-1f28-3b53-9663-d8e24f24b406",
+		"7b1fcbb2-d0c8-4c60-98cb-2d4ef02c4213",
+		"57203140-76cc-e082-f4ec-256076dde352",
+		"fd2492a7-44af-e923-a5f9-847112224480"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1509264886676,
+	"owner": "971835",
+	"public": false,
+	"requests": [
+		{
+			"id": "57203140-76cc-e082-f4ec-256076dde352",
+			"headers": "Authorization: Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://api.us-east-1.mbedcloud.com/v2/notification/callback",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b8129222-6957-c487-67f7-1fa608ac09d8",
+			"data": null,
+			"dataMode": "params",
+			"name": "GET /v2/notification/callback",
+			"description": "Check callback URL\nShows the current callback URL if it exists.",
+			"descriptionFormat": "html",
+			"time": 1509265043382,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "73b5299b-25fb-9951-32fa-1be0250392b3",
+			"headers": "Authorization: Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://api.us-east-1.mbedcloud.com/v2/endpoints/015f621244ec000000000001001001a3",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b8129222-6957-c487-67f7-1fa608ac09d8",
+			"data": null,
+			"dataMode": "params",
+			"name": "GET /v2/endpoints/{device-id}",
+			"description": "The list of resources is cached by mbed Cloud Connect, so this call does not create a message to the device.",
+			"descriptionFormat": "html",
+			"time": 1509264951796,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "7b1fcbb2-d0c8-4c60-98cb-2d4ef02c4213",
+			"headers": "Authorization: Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://api.us-east-1.mbedcloud.com/v2/notification/callback",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "b8129222-6957-c487-67f7-1fa608ac09d8",
+			"data": [],
+			"dataMode": "raw",
+			"name": "PUT /v2/notification/callback",
+			"description": "Register a callback URL",
+			"descriptionFormat": "html",
+			"time": 1509265011953,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n  \"url\": \"http://6512cc1a.ngrok.io/mbed-callback\"\n}"
+		},
+		{
+			"id": "d50b0578-1f28-3b53-9663-d8e24f24b406",
+			"headers": "Authorization: Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://api.us-east-1.mbedcloud.com/v2/endpoints/015f621244ec000000000001001001a3/20001/0/5700",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "b8129222-6957-c487-67f7-1fa608ac09d8",
+			"data": null,
+			"dataMode": "params",
+			"name": "GET /v2/endpoints/{device-id}/{resourcePath}",
+			"description": "Requests the resource value and when the response is available, a json AsyncIDResponse object is received in the notification channel. The preferred way to get resource values is to use subscribe and callback methods.\n\nAll resource APIs are asynchronous. These APIs only respond if the device is turned on and connected to mbed Cloud Connect.",
+			"descriptionFormat": "html",
+			"time": 1509264984245,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "fd2492a7-44af-e923-a5f9-847112224480",
+			"headers": "Authorization: Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://api.us-east-1.mbedcloud.com/v2/subscriptions/015f621244ec000000000001001001a3/20001/0/5700",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "b8129222-6957-c487-67f7-1fa608ac09d8",
+			"data": null,
+			"dataMode": "params",
+			"name": "/v2/subscriptions/{device-id}/{resourcePath}",
+			"description": "Subscribe to a resource path\n\nThe mbed Cloud Connect eventing model consists of observable resources.\n\nThis means that endpoints can deliver updated resource content, periodically or with a more sophisticated solution-dependent logic. The OMA LWM2M resource model including objects, object instances, resources and resource instances is also supported.\n\nApplications can subscribe to objects, object instances or individual resources to make the device to provide value change notifications to mbed Cloud Connect service. An application needs to call a /notification/callback method to get mbed Cloud Connect to push notifications of the resource changes.\n\nThe manual subscriptions are removed during a full device registration and applications need to re-subscribe at that point. To avoid this, you can use /subscriptions to set a pre-subscription.",
+			"descriptionFormat": "html",
+			"time": 1509265070139,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
