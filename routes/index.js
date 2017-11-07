@@ -2,17 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', function(req, res) {
+  res.status(200).send('ok');
 });
 
-router.get('/mbed-callback', (req, res, next) => {
+router.get('/mbed-callback', (req, res) => {
   console.log(req.body);
   console.log(req.data);
   res.status(200).send('ok');
 });
 
-router.put('/mbed-callback', (req, res, next) => {
+router.put('/mbed-callback', (req, res) => {
   console.log(req.body);
   try {
     const payload = req.body['async-responses'][0].payload
