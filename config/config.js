@@ -1,19 +1,11 @@
 module.exports = {
   development: {
-    username: 'root',
-    password: 'password',
-    database: 'iot_dev',
-    host: '192.168.99.100',
-    port: '3308',
-    dialect: 'mysql'
+    storage: 'sqlite3.db',
+    dialect: 'sqlite'
   },
   test: {
-    username: 'root',
-    password: 'password',
-    database: 'iot_dev',
-    host: '192.168.99.100',
-    port: '3308',
-    dialect: 'mysql'
+    storage: ':memory:',
+    dialect: 'sqlite'
   },
   production: {
     username: process.env.IOT_DB_USERNAME,
