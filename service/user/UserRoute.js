@@ -74,6 +74,7 @@ router.post('/', (req, res) => {
     .then(() => {
       res.status(201).end();
     }).catch(e => {
+      console.error(e);
       if (e.message.indexOf('Validation error') !== -1) {
         return res.status(304).end();
       } 

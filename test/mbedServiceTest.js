@@ -3,7 +3,7 @@ const path = require('path');
 
 const MbedService = require(path.resolve('service/mbed/MbedService'));
 
-describe.only('MbedServiceTest', () => {
+describe('MbedServiceTest', () => {
   const mbedService = new MbedService();
 
   it('not resturns any exceptions', () => {
@@ -34,13 +34,19 @@ describe.only('MbedServiceTest', () => {
 
     mbedService.process(body)
       .then(map => {
-        expect(map.fingerId).to.equal('65');
+        expect(map.fingerId).to.equal('51');
         expect(map.status).to.equal('DEAD');
         expect(map.lat).to.equal('28.00');
         expect(map.lng).to.equal('106.00');
         expect(map.inserted).to.be.true;
         done();
-      }).catch(done);
+      }).catch(err => {
+        if (err.name === 'SequelizeUniqueConstraintError') {
+          done();
+        } else {
+          done(err);
+        }
+      });
   });
   
   it('returns empty object when notifications come', done => {
