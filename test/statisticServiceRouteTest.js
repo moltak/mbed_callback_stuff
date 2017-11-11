@@ -12,7 +12,7 @@ describe('StatisticsServiceRouteTest', () => {
       .end((err, res) => {
         if (err) return done(err);
 
-        const statistic = res.body.statistic;
+        const statistic = res.body.statistic[0];
         expect(statistic).to.be.exist;
         expect(statistic.wounded).to.be.exist;
         expect(statistic.died).to.be.exist;

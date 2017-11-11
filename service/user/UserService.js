@@ -13,7 +13,7 @@ class UserService {
     });
 
     if (!user) {
-      throw new Error(`${email} is not exist in database`);
+      throw new Error(`${email} is not exist in database.`);
     }
 
     return user.get();  
