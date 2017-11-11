@@ -15,7 +15,15 @@ router.get('/', function(req, res) {
   statusService.getStatus(fingerId)
     .then(i => {
       res.status(200).json({
-        status: [i]
+        status: [{
+          id: i.id,
+          fingerId: i.fingerId,
+          status: i.status,
+          gps: {
+            lat: i.lat,
+            lng: i.lng
+          }
+        }]
       });
     })
     .catch(err => {

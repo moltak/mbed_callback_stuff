@@ -12,7 +12,7 @@ describe('StatusServiceRouteTest', () => {
       .end((err, res) => {
         if (err) return done(err);
 
-        const status = res.body.status;
+        const status = res.body.status[0];
         expect(status).to.be.exist;
         expect(status.fingerId).to.be.exist;
         expect(status.status).to.be.exist;

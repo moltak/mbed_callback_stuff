@@ -25,10 +25,10 @@ describe('StatusServiceTest', () => {
   });
 
   it('returns exception if fingerId off ', done => {
-    const fingerId = '1';
+    const fingerId = '1000';
     statusService
       .getStatus(fingerId)
-      .then(() => {
+      .then(data => {
         expect(false).to.be.true;
         done();
       }).catch(err => {
