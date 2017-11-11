@@ -35,10 +35,10 @@ describe('UserServiceRouteTest', () => {
       });
   });
 
-  it('relations', done => {
+  it('family', done => {
     const email = 'demo@demo.com';
     request(app)
-      .get(`/user/relationship?email=${email}`)
+      .get(`/user/family?email=${email}`)
       .end((err, res) => {
         if (err) return done(err);
 

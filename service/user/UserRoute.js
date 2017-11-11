@@ -24,7 +24,7 @@ router.get('/all', function(req, res) {
   });
 });
 
-router.get('/relationship', function(req, res) {
+router.get('/family', function(req, res) {
   res.status(200).json({
     users: [
       fakeUser
