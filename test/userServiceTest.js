@@ -33,4 +33,17 @@ describe('UserServiceTest', () => {
     expect(user).to.not.exist;
     expect(error).to.exist;
   });
+
+  it('returns family when user email exist', async () => {
+    const email = 'demo@demo.com';
+    const family = await userService.getFamily(email)
+    expect(family).to.exist;
+    expect(family).to.have.lengthOf.above(0);
+  });
+
+  it('returns all users', async () => {
+    const users = await userService.getAllUsers()
+    expect(users).to.exist;
+    expect(users).to.have.lengthOf.above(0);
+  });
 });

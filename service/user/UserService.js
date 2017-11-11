@@ -19,6 +19,18 @@ class UserService {
 
     return user;
   }
+
+  async getFamily(email) {
+    let family = await this.user.findAll({
+      where: {email: email}
+    });
+
+    return family;
+  }
+
+  async getAllUsers() {
+    return this.user.findAll({});
+  }
 }
 
 module.exports = UserService;

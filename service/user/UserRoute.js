@@ -1,35 +1,45 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
+const path = require('path');
+const Sequelize = require('sequelize');
 
-const fakeUser = {
-  firstName: 'Luis',
-  lastName: 'Ko',
-  fingerId: 'fingerId1',
-  famaily: 'family1',
-  phone: '01012345678',
-  sns: 'kakaotalk id?'
-};
+const config = require(path.resolve('config/config'))[process.env.NODE_ENV];
+const UserService = require(path.resolve('service/user/UserService'));
+
+const sequelize = new Sequelize(config.database, config.username, config.password, config);
+const userService = new UserService(sequelize);
 
 router.get('/', function(req, res) {
-  res.status(200).json({
-    user: fakeUser
-  });
+  userService.getUser('demo@demo.com')
+    .then(i => {
+      res.status(200).json({
+        user: i
+      });
+    }).catch(() => {
+      res.status(500).end();
+    });
 });
 
 router.get('/all', function(req, res) {
-  res.status(200).json({
-    users: [
-      fakeUser
-    ]
-  });
+  userService.getAllUsers()
+    .then(i => {
+      res.status(200).json({
+        users: i
+      });
+    }).catch(() => {
+      res.status(500).end();
+    });
 });
 
 router.get('/family', function(req, res) {
-  res.status(200).json({
-    users: [
-      fakeUser
-    ]
-  });
+  userService.getFamily('demo@demo.com')
+    .then(i => {
+      res.status(200).json({
+        users: i
+      });
+    }).catch(() => {
+      res.status(500).end();
+    });
 });
 
 module.exports = router;
