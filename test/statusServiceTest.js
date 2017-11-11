@@ -28,7 +28,7 @@ describe('StatusServiceTest', () => {
     const fingerId = '1000';
     statusService
       .getStatus(fingerId)
-      .then(data => {
+      .then(() => {
         expect(false).to.be.true;
         done();
       }).catch(err => {
@@ -36,6 +36,15 @@ describe('StatusServiceTest', () => {
         expect(err.message.indexOf('not exist') !== -1).to.be.true;
         done();
       });
+  });
+
+  it('returns statuses', done => {
+    statusService
+      .getAllStatuses()
+      .then(data => {
+        expect(data).to.have.lengthOf.above(0);
+        done();
+      }).catch(done);
   });
 });
 

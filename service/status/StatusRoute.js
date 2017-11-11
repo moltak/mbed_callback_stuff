@@ -34,6 +34,31 @@ router.get('/', function(req, res) {
     });
 });
 
+router.get('/all', function(req, res) {
+  statusService.getAllStatuses()
+    .then(statuses => {
+      res.status(200).json({
+        statuses: statuses.map(i => {
+          return {
+            id: i.id,
+            fingerId: i.fingerId,
+            status: i.status,
+            gps: {
+              lat: i.lat,
+              lng: i.lng
+            }
+          };
+        })
+      });
+    })
+    .catch(err => {
+      if (err.message.indexOf('not exist') !== -1) {
+        return res.status(404).end();
+      }
+      res.status(500).end();
+    });
+});
+
 /**
 router.post('/', function(req, res) {
   res.status(200).json({

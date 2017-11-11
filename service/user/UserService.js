@@ -16,7 +16,7 @@ class UserService {
       throw new Error(`${email} is not exist in database.`);
     }
 
-    return user.get();  
+    return user;
   }
 
   async getFamily(email) {

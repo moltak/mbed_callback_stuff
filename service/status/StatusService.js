@@ -16,7 +16,12 @@ class StatusService {
       throw new Error(`${fingerId} id not exist in database.`);
     }
 
-    return status.get();
+    return status;
+  }
+
+  async getAllStatuses() {
+    const statuses = await this.status.findAll({});
+    return statuses;
   }
 }
 

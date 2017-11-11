@@ -31,4 +31,16 @@ describe('StatusServiceRouteTest', () => {
         done();
       });
   });
+
+  it('returns statueses', done => {
+    request(app)
+      .get('/status/all')
+      .expect(200)
+      .end((err, data)  => {
+        if (err) return done(err);
+
+        expect(data.body.statuses).to.have.lengthOf.above(0);
+        done();
+      });
+  });
 });
