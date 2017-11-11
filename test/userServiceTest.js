@@ -67,4 +67,38 @@ describe('UserServiceTest', () => {
     expect(users).to.exist;
     expect(users).to.have.lengthOf.above(0);
   });
+
+  it('returns false when failed to change user fingerId', async () => {
+    const email = 'demo6@demo.com';
+    const fingerId = 10;
+
+    const result = await userService.changeUserFingerId(email, fingerId);
+    expect(result).to.be.false;
+  });
+
+  it('returns true when success to change user fingerId', async () => {
+    const email = 'demo1@demo.com';
+    const fingerId = '10';
+
+    const result = await userService.changeUserFingerId(email, fingerId);
+    expect(result).to.be.true;
+  });
+
+  it('insert user', async () => {
+    const params = {
+      firstName: 'from', 
+      lastName: 'test', 
+      email: 'test@email.com', 
+      family: 'family5',
+      phone: 'test phone number',
+      sns: 'sns'
+    };
+
+    try {
+      const result = await userService.insertUser(params);
+      expect(result).to.be.true;
+    } catch (e) {
+      expect(e.message.indexOf('Validation error')).to.be.not.equal(-1);
+    }
+  });
 });

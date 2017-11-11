@@ -37,6 +37,33 @@ class UserService {
   async getAllUsers() {
     return this.user.findAll({});
   }
+
+  async changeUserFingerId(email, fingerId) {
+    const result = await this.user.update({fingerId: fingerId},
+      {
+        where: {
+          email: email
+        }
+      }
+    );
+
+    return result[0] === 1;
+  }
+
+  async insertUser({firstName = '', lastName = '', email = '', family = '', phone = '', sns = '', fingerId = ''}) {
+    const params = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      family: family,
+      phone: phone,
+      sns: sns,
+      fingerId: fingerId
+    };
+  
+    const result = await this.user.create(params);
+    return result !== undefined;
+  }
 }
 
 module.exports = UserService;
