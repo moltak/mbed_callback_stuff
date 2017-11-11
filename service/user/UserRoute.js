@@ -52,4 +52,33 @@ router.get('/family', function(req, res) {
     });
 });
 
+router.put('/', (req, res) => {
+  const email = req.query.email;
+  const fingerId = req.body.fingerId;
+
+  userService.changeUserFingerId(email, fingerId)
+    .then(() => {
+      res.status(201).end();
+    }).catch(e => {
+      if (e.message.indexOf('not exist') !== -1) {
+        return res.status(400).end();
+      } 
+      return res.status(500).end();
+    });
+});
+
+router.post('/', (req, res) => {
+  const params = req.body;
+
+  userService.insertUser(params)
+    .then(() => {
+      res.status(201).end();
+    }).catch(e => {
+      if (e.message.indexOf('Validation error') !== -1) {
+        return res.status(304).end();
+      } 
+      return res.status(500).end();
+    });
+});
+
 module.exports = router;

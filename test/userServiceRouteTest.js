@@ -50,4 +50,43 @@ describe('UserServiceRouteTest', () => {
         done();
       });
   });
+
+  it('update finger id', done => {
+    const email = 'demo1@demo.com';
+    const fingerId = '10';
+
+    request(app)
+      .put(`/user?email=${email}`)
+      .send({fingerId: fingerId})
+      .expect(201)
+      .end((err, res) => {
+        if (err) return done(err);
+
+        const body = res.body;
+        expect(body).to.be.exist;
+        done();
+      });
+  });
+
+  it('insert user', done => {
+    const params = {
+      firstName: 'from', 
+      lastName: 'test', 
+      email: 'test@email.com', 
+      family: 'family5',
+      phone: 'test phone number',
+      sns: 'sns'
+    };
+
+    request(app)
+      .post('/user')
+      .send(params)
+      .end((err, res) => {
+        if (err) return done(err);
+
+        const body = res.body;
+        expect(body).to.be.exist;
+        done();
+      });
+  });
 });
