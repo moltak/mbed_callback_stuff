@@ -5,14 +5,14 @@ const path = require('path');
 const app = require(path.resolve('app'));
 
 describe('StatisticsServiceRouteTest', () => {
-  it('get', done => {
+  it('returns statistic data', done => {
     request(app)
       .get('/statistic')
       .expect(200)
       .end((err, res) => {
         if (err) return done(err);
 
-        const statistic = res.body.statistic[0];
+        const statistic = res.body.statistics[0];
         expect(statistic).to.be.exist;
         expect(statistic.wounded).to.be.exist;
         expect(statistic.died).to.be.exist;

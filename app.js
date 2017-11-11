@@ -8,7 +8,7 @@ var cors = require('cors');
 var index = require('./routes/index');
 var hackathon = require('./routes/hackathon');
 var user = require('./service/user/UserRoute');
-var statistic = require('./service/stastistic/StatisticRoute');
+var statistic = require('./service/statistic/StatisticRoute');
 var status = require('./service/status/StatusRoute');
 
 var app = express();
