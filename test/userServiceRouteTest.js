@@ -8,7 +8,7 @@ describe('UserServiceRouteTest', () => {
   it('user by id', done => {
     const email = 'demo@demo.com';
     request(app)
-      .get(`/user?user=${email}`)
+      .get(`/user?email=${email}`)
       .end((err, res) => {
         if (err) return done(err);
 
@@ -22,7 +22,7 @@ describe('UserServiceRouteTest', () => {
 
   it('users', done => {
     request(app)
-      .get('/users')
+      .get('/user/all')
       .end((err, res) => {
         if (err) return done(err);
 
@@ -38,7 +38,7 @@ describe('UserServiceRouteTest', () => {
   it('relations', done => {
     const email = 'demo@demo.com';
     request(app)
-      .get(`/user/relationship=${email}`)
+      .get(`/user/relationship?email=${email}`)
       .end((err, res) => {
         if (err) return done(err);
 
