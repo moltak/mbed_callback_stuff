@@ -20,8 +20,7 @@ module.exports = {
         unique: true
       },
       fingerId: {
-        type: Sequelize.STRING,
-        unique: true
+        type: Sequelize.STRING
       },
       family: {
         type: Sequelize.STRING
