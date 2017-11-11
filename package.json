@@ -10,6 +10,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "~1.18.2",
+    "botgram": "^2.0.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~3.1.0",
@@ -17,11 +18,13 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "mysql2": "^1.4.2",
+    "node-telegram-bot-api": "^0.29.0",
     "request": "^2.83.0",
     "sequelize": "v3.30.4",
     "sequelize-cli": "^3.0.0",
     "serve-favicon": "~2.4.2",
-    "sqlite3": "^3.1.13"
+    "sqlite3": "^3.1.13",
+    "telegraf": "^3.15.3"
   },
   "devDependencies": {
     "chai": "^4.1.2",

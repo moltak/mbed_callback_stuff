@@ -31,6 +31,24 @@ app.use('/statistic', statistic);
 app.use('/status', status);
 app.use('/mbed', mbed);
 
+const TOKEN = '409441372:AAHoPnS6CQFoBQ4GSRT1Tl8YjeY7xA-TQFk';
+const url = 'https://fa5e5b0d.ngrok.io';
+const TelegramBot = require('node-telegram-bot-api');
+
+const bot = new TelegramBot(TOKEN);
+
+bot.setWebHook(`${url}/bot${TOKEN}`);
+
+app.post(`/bot${TOKEN}`, (req, res) => {
+  bot.processUpdate(req.body);
+  res.sendStatus(200);
+});
+
+// Just to ping!
+bot.on('message', msg => {
+  bot.sendMessage(msg.chat.id, 'I am alive!');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
