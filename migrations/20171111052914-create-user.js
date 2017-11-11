@@ -17,11 +17,11 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true,
-        index: true
+        unique: true
       },
       fingerId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       family: {
         type: Sequelize.STRING
