@@ -6,7 +6,7 @@ module.exports = {
       {
         firstName: 'Horhe',
         lastName: 'Spain',
-        email: 'demo@demo.com',
+        email: 'demo1@demo.com',
         fingerId: '1',
         family: 'family1',
         phone: '010',
@@ -18,7 +18,7 @@ module.exports = {
       {
         firstName: 'Luis',
         lastName: 'Mexico',
-        email: 'demo@demo.com',
+        email: 'demo2@demo.com',
         fingerId: '2',
         family: 'family1',
         phone: '010',
@@ -30,7 +30,7 @@ module.exports = {
       {
         firstName: 'Jayoung',
         lastName: 'Ko',
-        email: 'demo@demo.com',
+        email: 'demo3@demo.com',
         fingerId: '3',
         family: 'family1',
         phone: '010',
@@ -42,7 +42,7 @@ module.exports = {
       {
         firstName: 'Anna',
         lastName: 'Kim',
-        email: 'demo@demo.com',
+        email: 'demo4@demo.com',
         fingerId: '4',
         family: 'family1',
         phone: '010',
@@ -54,7 +54,7 @@ module.exports = {
       {
         firstName: 'Kyungho',
         lastName: 'Jung',
-        email: 'demo@demo.com',
+        email: 'demo5@demo.com',
         fingerId: '5',
         family: 'family2',
         phone: '010',

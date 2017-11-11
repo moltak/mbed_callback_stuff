@@ -10,7 +10,7 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
 const userService = new UserService(sequelize);
 
 router.get('/', function(req, res) {
-  userService.getUser('demo@demo.com')
+  userService.getUser('demo1@demo.com')
     .then(i => {
       res.status(200).json({
         user: i
@@ -32,7 +32,7 @@ router.get('/all', function(req, res) {
 });
 
 router.get('/family', function(req, res) {
-  userService.getFamily('demo@demo.com')
+  userService.getFamily('demo1@demo.com')
     .then(i => {
       res.status(200).json({
         users: i

@@ -15,7 +15,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        index: true
       },
       fingerId: {
         type: Sequelize.STRING
@@ -27,9 +30,6 @@ module.exports = {
         type: Sequelize.STRING
       },
       sns: {
-        type: Sequelize.STRING
-      },
-      url:  {
         type: Sequelize.STRING
       },
       createdAt: {

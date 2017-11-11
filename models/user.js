@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     fingerId: DataTypes.STRING,
     family: DataTypes.STRING,
     phone: DataTypes.STRING,
-    sns: DataTypes.STRING
+    sns: DataTypes.STRING,
+    url: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
