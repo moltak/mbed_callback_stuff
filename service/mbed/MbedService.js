@@ -11,6 +11,7 @@ class MbedService {
     this.token = 'Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk';
     this.resourceId = '20004/0/5998';
     this.statusService = new StatusService();
+    this.status = db.status;
   }
 
   async process(body) {
@@ -23,8 +24,13 @@ class MbedService {
     }
 
     if (map) {
-      const result = await this.statusService.insertStatus(map);
+      console.log(map);
+      const result = await this.status.create(map);
       map.inserted = result;
+    }
+
+    if (map && map.status === 'died') {
+
     }
 
     return map;
