@@ -6,7 +6,7 @@ const app = require(path.resolve('app'));
 
 describe('UserServiceRouteTest', () => {
   it('user by id', done => {
-    const email = 'demo@demo.com';
+    const email = 'demo1@demo.com';
     request(app)
       .get(`/user?email=${email}`)
       .end((err, res) => {
@@ -36,7 +36,7 @@ describe('UserServiceRouteTest', () => {
   });
 
   it('family', done => {
-    const email = 'demo@demo.com';
+    const email = 'demo1@demo.com';
     request(app)
       .get(`/user/family?email=${email}`)
       .end((err, res) => {
