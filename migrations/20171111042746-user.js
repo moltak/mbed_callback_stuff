@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Users', {
@@ -21,8 +20,8 @@ module.exports = {
       fingerId: {
         type: Sequelize.STRING
       },
-      famaily: {
-        type: Sequelize.ARRAY
+      family: {
+        type: Sequelize.STRING
       },
       phone: {
         type: Sequelize.STRING
@@ -40,7 +39,6 @@ module.exports = {
       }
     });
   },
-
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Users');
   }
