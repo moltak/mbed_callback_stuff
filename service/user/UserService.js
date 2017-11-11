@@ -1,26 +1,40 @@
 const path = require('path');
 const Sequelize = require('sequelize');
 const User = require(path.resolve('models/user'));
+const Status = require(path.resolve('models/status'));
 
 class UserService {
   constructor(sequelize) {
     this.user = User(sequelize, Sequelize);
+    this.status = Status(sequelize, Sequelize);
+    this.user.hasOne(this.status);
   }
 
   async getUser(email) {
     let user = await this.user.findOne({
-      where: {email: email}
+      where: {email: email},
+      include: [
+        {
+          model: this.status
+        }
+      ] 
     });
 
     if (!user) {
       throw new Error(`${email} is not exist in database.`);
     }
 
+    user = user.get();
+    if (user.Status) {
+      user.status = user.Status.get();
+      delete user.Status;
+    }
+
     return user;
   }
 
   async getFamily(email) {
-    const user = await this.getUser(email)
+    const user = await this.getUser(email);
 
     let family = await this.user.findAll({
       where: {
@@ -28,10 +42,25 @@ class UserService {
         email: {
           ne: user.email 
         }
-      }
+      },
+      include: [
+        {
+          model: this.status
+        }
+      ]
     });
 
-    return family;
+    return family.map(i => {
+      return Object.assign({}, {
+        email: i.email,
+        firstName: i.firstName,
+        lastName: i.lastName,
+        fingerId: i.fingerId,
+        phone: i.phone,
+        sns: i.sns,
+        status: !i.Status ? undefined : i.Status.get()
+      });
+    });
   }
 
   async getAllUsers() {
@@ -60,7 +89,7 @@ class UserService {
       sns: sns,
       fingerId: fingerId
     };
-  
+
     const result = await this.user.create(params);
     return result !== undefined;
   }

@@ -8,6 +8,7 @@ module.exports = {
         status: 'damaged',
         lat: '21.282776',
         lng: '-157.840591',
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -16,6 +17,7 @@ module.exports = {
         status: 'damaged',
         lat: '21.282076',
         lng: '-157.840591',
+        userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },

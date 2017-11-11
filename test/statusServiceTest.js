@@ -20,6 +20,8 @@ describe('StatusServiceTest', () => {
       .then(i => {
         const status = i;
         expect(status).to.be.exist;
+        expect(status.user).to.be.exist;
+        expect(status.user.email).to.be.equal('demo1@demo.com');
         done();
       }).catch(done);
   });

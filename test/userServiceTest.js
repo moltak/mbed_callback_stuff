@@ -17,6 +17,7 @@ describe('UserServiceTest', () => {
     const email = 'demo1@demo.com';
     const user = await userService.getUser(email)
     expect(user).to.exist;
+    expect(user.status).to.exist;
   });
 
   it('returns throws exception when user email not exist', async () => {
@@ -39,6 +40,7 @@ describe('UserServiceTest', () => {
     const family = await userService.getFamily(email)
     expect(family).to.exist;
     expect(family).to.have.lengthOf(3);
+    expect(family[0].status).to.be.exist;
   });
 
   it('returns 0. when user has\'t family', async () => {

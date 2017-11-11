@@ -40,6 +40,7 @@ describe('StatusServiceRouteTest', () => {
         if (err) return done(err);
 
         expect(data.body.statuses).to.have.lengthOf.above(0);
+        expect(data.body.statuses[0].user).to.be.exist;
         done();
       });
   });
