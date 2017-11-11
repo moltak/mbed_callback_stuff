@@ -11,6 +11,11 @@ class StatusService {
     this.status.belongsTo(this.user);
   }
 
+  async insertStatus(params) {
+    const result = await this.status.create(params);
+    return result !== undefined;
+  }
+
   async getStatus(fingerId) {
     let status = await this.status.findOne({
       where: {fingerId: fingerId},

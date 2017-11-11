@@ -58,6 +58,7 @@ class UserService {
         fingerId: i.fingerId,
         phone: i.phone,
         sns: i.sns,
+        url: i.url,
         status: !i.Status ? undefined : i.Status.get()
       });
     });

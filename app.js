@@ -10,6 +10,7 @@ var hackathon = require('./routes/hackathon');
 var user = require('./service/user/UserRoute');
 var statistic = require('./service/statistic/StatisticRoute');
 var status = require('./service/status/StatusRoute');
+var mbed = require('./service/mbed/MbedRoute');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/hackathon', hackathon);
 app.use('/user', user);
 app.use('/statistic', statistic);
 app.use('/status', status);
+app.use('/mbed', mbed);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
