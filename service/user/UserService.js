@@ -2,12 +2,12 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const User = require(path.resolve('models/user'));
 const Status = require(path.resolve('models/status'));
+const db = require(path.resolve('db'));
 
 class UserService {
   constructor(sequelize) {
-    this.user = User(sequelize, Sequelize);
-    this.status = Status(sequelize, Sequelize);
-    this.user.hasOne(this.status);
+    this.user = db.user;
+    this.status = db.status;
   }
 
   async getUser(email) {

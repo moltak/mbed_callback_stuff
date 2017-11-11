@@ -1,10 +1,11 @@
 const path = require('path');
 const Sequelize = require('sequelize');
 const Statistic = require(path.resolve('models/statistic'));
+const db = require(path.resolve('db'));
 
 class StatisticService {
   constructor(sequelize) {
-    this.statistic = Statistic(sequelize, Sequelize);
+    this.statistic = db.statistic;
   }
 
   async getStatistics() {

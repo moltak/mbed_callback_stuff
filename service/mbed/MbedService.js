@@ -2,19 +2,20 @@ const request = require('request');
 const Promise = require('bluebird');
 const path = require('path');
 const Sequelize = require('sequelize');
-
-const Status = require(path.resolve('models/status'));
+const db = require(path.resolve('db'));
+const StatusService = require(path.resolve('service/status/StatusService'));
 
 class MbedService {
   constructor(sequelize) {
     this.mbedUrl = 'https://api.us-east-1.mbedcloud.com/v2/subscriptions/015f621244ec000000000001001001a3/';
     this.token = 'Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk';
     this.resourceId = '20004/0/5998';
+    this.statusService = new StatusService();
   }
 
-  process(body) {
-    let map = {inserted: false};
-    
+  async process(body) {
+   let map;
+
     if (body['notifications']) {
       const base64Payload = body['notifications'][0].payload;
       const payload = this.extractPayload(base64Payload);
@@ -22,7 +23,7 @@ class MbedService {
     }
 
     if (map) {
-      const result = this.status.insertStatus(map);
+      const result = await this.statusService.insertStatus(map);
       map.inserted = result;
     }
 

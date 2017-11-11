@@ -3,7 +3,7 @@ const path = require('path');
 
 const MbedService = require(path.resolve('service/mbed/MbedService'));
 
-describe('MbedServiceTest', () => {
+describe.only('MbedServiceTest', () => {
   const mbedService = new MbedService();
 
   it('not resturns any exceptions', () => {
@@ -50,11 +50,7 @@ describe('MbedServiceTest', () => {
 
     mbedService.process(body)
       .then(map => {
-        expect(map.fingerId).to.not.exist;
-        expect(map.status).to.not.exist;
-        expect(map.lat).to.not.exist;
-        expect(map.lng).to.not.exist;
-        expect(map.inserted).to.be.false;
+        expect(map).to.be.undefined;
         done();
       }).catch(done);
   });
