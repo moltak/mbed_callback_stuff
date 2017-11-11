@@ -12,17 +12,23 @@ class UserService {
       where: {email: email}
     });
 
-    user = user.get();  
-    if (user === undefined) {
+    if (!user) {
       throw new Error(`${email} is not exist in database`);
     }
 
-    return user;
+    return user.get();  
   }
 
   async getFamily(email) {
+    const user = await this.getUser(email)
+
     let family = await this.user.findAll({
-      where: {email: email}
+      where: {
+        family: user.family,
+        email: {
+          ne: user.email 
+        }
+      }
     });
 
     return family;

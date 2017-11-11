@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
   userService.getUser('demo1@demo.com')
     .then(i => {
       res.status(200).json({
-        user: i
+        user: [i]
       });
     }).catch(() => {
       res.status(500).end();
