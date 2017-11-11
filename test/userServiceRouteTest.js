@@ -15,7 +15,8 @@ describe('UserServiceRouteTest', () => {
         expect(res.status).to.equal(200);
 
         const body = res.body;
-        expect(body.user).to.exist;
+        expect(body.user[0]).to.exist;
+        expect(body.user[0].status).to.exist;
         done();
       });
   });
@@ -47,6 +48,7 @@ describe('UserServiceRouteTest', () => {
         const body = res.body;
         expect(body.users).to.exist;
         expect(body.users).to.have.lengthOf.above(0);
+        expect(body.users[0].status).to.be.exist;
         done();
       });
   });

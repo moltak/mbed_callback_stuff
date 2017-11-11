@@ -22,7 +22,8 @@ router.get('/', function(req, res) {
           gps: {
             lat: i.lat,
             lng: i.lng
-          }
+          },
+          user: i.user
         }]
       });
     })

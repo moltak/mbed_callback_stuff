@@ -18,6 +18,7 @@ describe('StatusServiceRouteTest', () => {
         expect(status.status).to.be.exist;
         expect(status.gps.lat).to.be.exist;
         expect(status.gps.lng).to.be.exist;
+        expect(status.user.email).to.be.equal('demo1@demo.com');
         done();
       });
   });
