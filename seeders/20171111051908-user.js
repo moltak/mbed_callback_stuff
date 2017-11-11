@@ -11,6 +11,7 @@ module.exports = {
         family: 'family1',
         phone: '010',
         sns: 'kakao',
+        url: 'https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?w=640&ssl=1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -22,6 +23,7 @@ module.exports = {
         family: 'family1',
         phone: '010',
         sns: 'kakao',
+        url: 'https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?w=640&ssl=1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -33,6 +35,7 @@ module.exports = {
         family: 'family1',
         phone: '010',
         sns: 'kakao',
+        url: 'https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?w=640&ssl=1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -44,6 +47,7 @@ module.exports = {
         family: 'family1',
         phone: '010',
         sns: 'kakao',
+        url: 'https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?w=640&ssl=1',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -55,6 +59,7 @@ module.exports = {
         family: 'family2',
         phone: '010',
         sns: 'kakao',
+        url: 'https://i2.wp.com/beebom.com/wp-content/uploads/2016/01/Reverse-Image-Search-Engines-Apps-And-Its-Uses-2016.jpg?w=640&ssl=1',
         createdAt: new Date(),
         updatedAt: new Date()
       }
