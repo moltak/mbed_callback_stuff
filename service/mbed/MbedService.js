@@ -22,15 +22,20 @@ class MbedService {
       const payload = this.extractPayload(base64Payload);
       map = this.getMap(payload);
     }
-
-    if (map) {
-      console.log(map);
-      const result = await this.status.create(map);
-      map.inserted = result;
+    
+    if (map && map.status === 'DEAD') {
+      map.sentNotification = true;
     }
 
-    if (map && map.status === 'died') {
-
+    if (map) {
+      /**
+       * trash code T_T. 
+       * I should use upsert function but I don't know how to do.
+       */
+      const status = await this.status.findOne({fingerId: map.fingerId});
+      map.id = status.id;
+      const result = await this.status.upsert(map);
+      map.inserted = result;
     }
 
     return map;

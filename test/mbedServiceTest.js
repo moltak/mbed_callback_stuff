@@ -1,9 +1,10 @@
 const expect = require('chai').expect;
 const path = require('path');
+const sinon = require('sinon');
 
 const MbedService = require(path.resolve('service/mbed/MbedService'));
 
-describe('MbedServiceTest', () => {
+describe.only('MbedServiceTest', () => {
   const mbedService = new MbedService();
 
   it('not resturns any exceptions', () => {
@@ -36,9 +37,10 @@ describe('MbedServiceTest', () => {
       .then(map => {
         expect(map.fingerId).to.equal('51');
         expect(map.status).to.equal('DEAD');
-        expect(map.lat).to.equal('28.00');
-        expect(map.lng).to.equal('106.00');
+        expect(map.lat).to.equal('161.00');
+        expect(map.lng).to.equal('73.00');
         expect(map.inserted).to.be.true;
+        expect(map.sentNotification).to.be.true;
         done();
       }).catch(err => {
         if (err.name === 'SequelizeUniqueConstraintError') {
@@ -59,5 +61,26 @@ describe('MbedServiceTest', () => {
         expect(map).to.be.undefined;
         done();
       }).catch(done);
+  });
+
+  it('my status is invaild, send notify to our friends', done => {
+    const body = {
+      notifications: [
+        {
+          payload: 'NTEvREVBRC8xNjEuMDAvNzMuMDA='
+        }
+      ]
+    };
+
+    mbedService.process(body)
+      .then(() => {
+        done();
+      }).catch(err => {
+        done(err);
+      });
+  });
+
+  it('my status is vaild does not occurs anything', done => {
+    done();
   });
 });
