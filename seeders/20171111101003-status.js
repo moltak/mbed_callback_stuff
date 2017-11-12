@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('Statuses', [
       {
         fingerId: '1',
-        status: 'damaged',
+        status: 'DISEASE',
         lat: '21.282776',
         lng: '-157.840591',
         userId: 1,
@@ -14,10 +14,37 @@ module.exports = {
       },
       {
         fingerId: '2',
-        status: 'damaged',
+        status: 'OK',
         lat: '21.282076',
         lng: '-157.840591',
         userId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fingerId: '3',
+        status: 'OK',
+        lat: '21.282076',
+        lng: '-157.840591',
+        userId: 3,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fingerId: '4',
+        status: 'OK',
+        lat: '21.282076',
+        lng: '-157.840591',
+        userId: 4,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        fingerId: '5',
+        status: 'OK',
+        lat: '21.282076',
+        lng: '-157.840591',
+        userId: 5,
         createdAt: new Date(),
         updatedAt: new Date()
       },

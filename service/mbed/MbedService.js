@@ -4,13 +4,14 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const db = require(path.resolve('db'));
 const bus = require(path.resolve('bus'));
+const StatusService = require(path.resolve('service/status/StatusService'));
 
 class MbedService {
-  constructor(sequelize) {
+  constructor() {
     this.mbedUrl = 'https://api.us-east-1.mbedcloud.com/v2/subscriptions/015f621244ec000000000001001001a3/';
     this.token = 'Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk';
     this.resourceId = '20004/0/5998';
-    this.status = db.status;
+    this.statusService = new StatusService();
   }
 
   async process(body) {
@@ -24,7 +25,11 @@ class MbedService {
     }
 
     if (map) {
-      status = await this.status.findOne({fingerId: map.fingerId});
+      status = await this.statusService.getStatus(map.fingerId);
+      if (status.User) {
+        status.user = status.User.get();
+        delete status.User;
+      }
       //if (map.status === 'DECEASED') {
       bus.onNext(`${status.user.firstName} is ${map.status}.`);
       map.sentNotification = true;
@@ -37,7 +42,7 @@ class MbedService {
        * I should use upsert function but I don't know how to do.
        */
       map.id = status.id;
-      const result = await this.status.upsert(map);
+      const result = await this.statusService.insertStatus(map);
       map.inserted = result;
     }
 
