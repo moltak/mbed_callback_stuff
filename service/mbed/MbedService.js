@@ -30,6 +30,10 @@ class MbedService {
         status.user = status.User.get();
         delete status.User;
       }
+
+      status.status = map.status;
+      status.lat = map.lat;
+      status.lng = map.lng;
       //if (map.status === 'DECEASED') {
       bus.onNext(status);
       map.sentNotification = true;
@@ -42,8 +46,12 @@ class MbedService {
        * I should use upsert function but I don't know how to do.
        */
       map.id = status.id;
-      const result = await this.statusService.insertStatus(map);
-      map.inserted = result;
+      try {
+        const result = await this.statusService.insertStatus(map);
+        map.inserted = result;
+      } catch (e) {
+        console.error(e);
+      }
     }
 
     return map;
