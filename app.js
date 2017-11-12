@@ -53,7 +53,8 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 bus.subscribe(
   function (x) {
     console.log('Next: ' + x.toString());
-    if (chatId) bot.sendMessage(chatId, x.toString());
+    bot.sendMessage('24177202', x.toString());
+    bot.sendMessage('422403867', x.toString());
   },
   function (err) {
     console.log('Error: ' + err);

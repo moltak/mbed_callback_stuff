@@ -24,9 +24,11 @@ class MbedService {
       status = await this.status.findOne({fingerId: map.fingerId});
     }
 
-    if (map && map.status === 'DEAD') {
-      bus.onNext(`fingerId: ${status.fingerId}, ${map.status}`);
-      map.sentNotification = true;
+    if (map) {
+      if (map.status === 'DECEASED') {
+        bus.onNext(`fingerId: ${status.fingerId}, ${map.status}`);
+        map.sentNotification = true;
+      }
     }
 
     if (map) {
