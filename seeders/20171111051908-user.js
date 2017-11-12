@@ -49,6 +49,7 @@ module.exports = {
         phone: '01026385604',
         sns: 'kakao',
         url: 'https://scontent-icn1-1.xx.fbcdn.net/v/t1.0-1/23244305_377230426046176_8005470114170796063_n.jpg?oh=d84fe57f07258729dd4cd76ca294037c&oe=5AAC80FE',
+        telegram: '474215211',
         createdAt: new Date(),
         updatedAt: new Date()
       },
