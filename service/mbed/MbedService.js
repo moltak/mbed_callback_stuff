@@ -31,7 +31,7 @@ class MbedService {
         delete status.User;
       }
       //if (map.status === 'DECEASED') {
-      bus.onNext(`${status.user.firstName} is ${map.status}.`);
+      bus.onNext(status);
       map.sentNotification = true;
       //}
     }

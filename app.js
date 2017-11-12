@@ -47,16 +47,18 @@ app.post(`/bot${TOKEN}`, (req, res) => {
 });
 
 
+const telegramId = ['475982712', '422403867', '474215211', '24177202'];
 /**
  * subscribe! 
  */
 bus.subscribe(
-  function (x) {
-    console.log('Next: ' + x.toString());
-    bot.sendMessage('475982712', x.toString());
-    bot.sendMessage('422403867', x.toString());
-    bot.sendMessage('474215211', x.toString());
-    bot.sendMessage('24177202', x.toString());
+  function (status) {
+    const str = `${status.user.firstName} is ${status.status}`; 
+
+    telegramId.forEach(id => {
+      bot.sendMessage(id, str);
+      bot.sendLocation(id, status.lat, status.lng);
+    });
   },
   function (err) {
     console.log('Error: ' + err);
