@@ -3,27 +3,29 @@ const Promise = require('bluebird');
 const path = require('path');
 const Sequelize = require('sequelize');
 const db = require(path.resolve('db'));
-const StatusService = require(path.resolve('service/status/StatusService'));
+const bus = require(path.resolve('bus'));
 
 class MbedService {
   constructor(sequelize) {
     this.mbedUrl = 'https://api.us-east-1.mbedcloud.com/v2/subscriptions/015f621244ec000000000001001001a3/';
     this.token = 'Bearer ak_1MDE1ZTc2YmJlMzU3MDI0MjBhMDE0ZTEwMDAwMDAwMDA015f66aca01f02420a010a1000000000GjHvffvVbrZJ3ubO8NQSyFjlCwg6GUxk';
     this.resourceId = '20004/0/5998';
-    this.statusService = new StatusService();
     this.status = db.status;
   }
 
   async process(body) {
-   let map;
+    let map;
+    let status;
 
     if (body['notifications']) {
       const base64Payload = body['notifications'][0].payload;
       const payload = this.extractPayload(base64Payload);
       map = this.getMap(payload);
+      status = await this.status.findOne({fingerId: map.fingerId});
     }
-    
+
     if (map && map.status === 'DEAD') {
+      bus.onNext(`fingerId: ${status.fingerId}, ${map.status}`);
       map.sentNotification = true;
     }
 
@@ -32,7 +34,6 @@ class MbedService {
        * trash code T_T. 
        * I should use upsert function but I don't know how to do.
        */
-      const status = await this.status.findOne({fingerId: map.fingerId});
       map.id = status.id;
       const result = await this.status.upsert(map);
       map.inserted = result;

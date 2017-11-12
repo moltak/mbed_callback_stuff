@@ -20,6 +20,7 @@
     "mysql2": "^1.4.2",
     "node-telegram-bot-api": "^0.29.0",
     "request": "^2.83.0",
+    "rx": "^4.1.0",
     "sequelize": "v3.30.4",
     "sequelize-cli": "^3.0.0",
     "serve-favicon": "~2.4.2",

@@ -12,6 +12,8 @@ var statistic = require('./service/statistic/StatisticRoute');
 var status = require('./service/status/StatusRoute');
 var mbed = require('./service/mbed/MbedRoute');
 
+var bus = require(path.resolve('bus'));
+
 var app = express();
 
 app.use(logger('dev'));
@@ -44,9 +46,28 @@ app.post(`/bot${TOKEN}`, (req, res) => {
   res.sendStatus(200);
 });
 
+
+/**
+ * subscribe! 
+ */
+bus.subscribe(
+  function (x) {
+    console.log('Next: ' + x.toString());
+    if (chatId) bot.sendMessage(chatId, x.toString());
+  },
+  function (err) {
+    console.log('Error: ' + err);
+  },
+  function () {
+    console.log('Completed');
+  });
+
+let chatId;
 // Just to ping!
 bot.on('message', msg => {
+  chatId = msg.chat.id;
   bot.sendMessage(msg.chat.id, 'I am alive!');
+  console.log(chatId);
 });
 
 // catch 404 and forward to error handler
