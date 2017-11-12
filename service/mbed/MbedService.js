@@ -21,14 +21,14 @@ class MbedService {
       const base64Payload = body['notifications'][0].payload;
       const payload = this.extractPayload(base64Payload);
       map = this.getMap(payload);
-      status = await this.status.findOne({fingerId: map.fingerId});
     }
 
     if (map) {
-      if (map.status === 'DECEASED') {
-        bus.onNext(`fingerId: ${status.fingerId}, ${map.status}`);
-        map.sentNotification = true;
-      }
+      status = await this.status.findOne({fingerId: map.fingerId});
+      //if (map.status === 'DECEASED') {
+      bus.onNext(`${status.user.firstName} is ${map.status}.`);
+      map.sentNotification = true;
+      //}
     }
 
     if (map) {

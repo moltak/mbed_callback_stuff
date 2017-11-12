@@ -79,8 +79,4 @@ describe.only('MbedServiceTest', () => {
         done(err);
       });
   });
-
-  it('my status is vaild does not occurs anything', done => {
-    done();
-  });
 });
