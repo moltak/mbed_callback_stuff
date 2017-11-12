@@ -19,6 +19,7 @@ router.put('/callback', (req, res) => {
 });
 
 function printMbedParams(body) {
+  console.log('%j', body);
   let base64Payload;
 
   if (body['async-responses']) {

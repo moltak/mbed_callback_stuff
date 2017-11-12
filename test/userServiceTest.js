@@ -100,7 +100,10 @@ describe('UserServiceTest', () => {
       const result = await userService.insertUser(params);
       expect(result).to.be.true;
     } catch (e) {
-      expect(e.message.indexOf('Validation error')).to.be.not.equal(-1);
+      if (e.name !== 'SequelizeUniqueConstraintError') {
+        console.log(e);
+        throw e;
+      }
     }
   });
 });
