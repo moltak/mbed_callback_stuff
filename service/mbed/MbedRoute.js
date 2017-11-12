@@ -15,7 +15,14 @@ router.get('/callback', (req, res) => {
 
 router.put('/callback', (req, res) => {
   printMbedParams(req.body);
-  res.status(200).send('ok');
+  mbedService
+    .process(req.body)
+    .then(i => {
+      console.log(i);
+      res.status(200).send('ok');
+    }).catch(err => {
+      res.status(500).json(err);
+    });
 });
 
 function printMbedParams(body) {
@@ -25,7 +32,7 @@ function printMbedParams(body) {
   if (body['async-responses']) {
     base64Payload = body['async-responses'][0].payload;
   }
-  
+
   if (body['notifications']) {
     base64Payload = body['notifications'][0].payload;
   }
